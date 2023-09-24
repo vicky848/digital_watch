@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digitalwatch</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+
+        }
+        body{
+            background-color: chartreuse;
+            height: 100vh;
+            width: 100vw;
+            background-size: cover;
+            text-align: center;
+            font-size:90px;
+            font-weight: bold;
+            font-family: "roboto";
+            
+
+            display: flex;
+            margin: 0px;
+            padding: 0px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; 
+           
+
+            
+        }
+        h1{
+            font-size: 50px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>DIGITAL WATCH </h1>
+    <div id="DigitalWatch"></div>
+   
+    <script type="text/javascript">
+     function showTime() {
+        let date  = new Date();
+        let h = date.getHours();
+        let m = date.getMinutes();
+        let s = date.getSeconds(); 
+       
+        let session = "AM"
+         
+        if(h == 12){
+            h =12
+        }
+        if(h < 12) {
+            h = h-12;
+            session = "PM"
+        }
+
+
+      h = (h < 10)?"0"+h:h;
+      m = (m < 10)?"0"+m:m;
+      s = (s < 10)?"0"+s:s; 
+
+
+        document.getElementById("DigitalWatch").innerHTML = h + ":" + m + ":" + s + " "+ session;
+        
+       setTimeout(showTime,1000);
+
+     }
+     showTime();
+
+    </script>
+    
+</body>
+</html>
